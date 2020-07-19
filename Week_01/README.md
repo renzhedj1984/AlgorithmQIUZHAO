@@ -13,10 +13,28 @@
 ### 数据结构
 1.  一纬数据结构   
 
-   a. Array 数组，LinkedList 链表
+   a. Array 数组,LinkedList 链表
 
    b. stack 栈(FILO)，queue 队列(FIFO)，Dequeue 双端队列，Set 集合，Map 映射
 
 2.  二维数据结构   
    a. Tree 树,Graph 图
 3.  特殊数据结构
+   a. BloomFilter,Bitwise,LRU Cache,
+
+
+
+## 课后作业
+
+### Queue
+在java定义中Queue是一个接口，主要定义了以下核心函数  
+1. boolean add(E e); 向队列添加元素，如果添加失败抛异常
+1. boolean offer(E e);向队列添加元素，如果添加失败返回false
+1. E remove(); 移除队列头元素，如果为空抛异常
+1. E poll(); 移除队列头元素，如果为空返回Null
+1. E element(); 返回队列头元素，如果为空抛异常
+1. E peek(); 返回队列头元素，如果为空返回Null
+AbstractQueue是其实现的抽象类
+
+### PriorityQueue
+PriorityQueue集成子AbstractQueue，主要实现实现了平衡二叉堆
