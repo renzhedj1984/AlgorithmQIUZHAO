@@ -8,15 +8,15 @@ public class LetterCombinationsOfAPhoneNumber {
     private List<String> res = new ArrayList<>();
 
     public List<String> letterCombinations(String digits) {
-        if(digits.isEmpty()){
+        if (digits.isEmpty()) {
             return Collections.EMPTY_LIST;
         }
         initMap();
-        backTrace(0, 0, digits, new StringBuilder());
+        backTrace(0, digits, new StringBuilder());
         return res;
     }
 
-    private void backTrace(int out, int inner, String digits, StringBuilder sb) {
+    private void backTrace(int out, String digits, StringBuilder sb) {
         if (sb.length() == digits.length()) {
             res.add(sb.toString());
             return;
@@ -25,7 +25,7 @@ public class LetterCombinationsOfAPhoneNumber {
             String words = map.get(digits.charAt(i));
             for (int j = 0; j < words.length(); j++) {
                 sb.append(words.charAt(j));
-                backTrace(i + 1, j, digits, sb);
+                backTrace(i + 1, digits, sb);
                 sb.deleteCharAt(sb.length() - 1);
             }
         }

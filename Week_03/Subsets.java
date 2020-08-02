@@ -33,6 +33,12 @@ public class Subsets {
         return output;
     }
 
+    public List<List<Integer>> solution3(int[] nums) {
+        this.nums = nums;
+        backTrace2(0, new LinkedList<Integer>());
+        return output;
+    }
+
     public void backTrace(int len, int start, LinkedList linkedList) {
         if (linkedList.size() == len) {
             output.add(new ArrayList(linkedList));
@@ -45,7 +51,18 @@ public class Subsets {
         }
     }
 
+    public void backTrace2(int index, LinkedList<Integer> linkedList) {
+        if (index == this.nums.length) {
+            output.add(new LinkedList<>(linkedList));
+            return;
+        }
+        backTrace2(index + 1, linkedList);
+        linkedList.add(this.nums[index]);
+        backTrace2(index + 1, linkedList);
+        linkedList.removeLast();//必须要移除否则影响下一层，导致数据长度不正确
+    }
+
     public static void main(String[] args) {
-        new Subsets().solution2(new int[]{1, 2, 3});
+        new Subsets().solution3(new int[]{1, 2, 3});
     }
 }
